@@ -18,7 +18,7 @@ defineProps({
         
     </div> -->
 
-    <!-- <div v-if="canLogin" class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+    <div v-if="canLogin" class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
         <Link v-if="$page.props.user" :href="route('dashboard')"
             class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</Link>
 
@@ -28,7 +28,7 @@ defineProps({
             <Link v-if="canRegister" :href="route('register')"
                 class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</Link>
         </template>
-    </div> -->
+    </div>
 
     <!-- This example requires Tailwind CSS v3.0+ -->
     <div class="isolate bg-white">
@@ -78,14 +78,20 @@ defineProps({
                         <a href="#" class="font-semibold text-gray-900 hover:text-gray-900">Company</a>
                     </div>
                     <div class="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-end">
-                        <Link :href="route('login')"
+                        <Link   v-if="$page.props.user" :href="route('dashboard')"
                             class="mr-2 inline-block rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 text-gray-900 shadow-sm ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-                            Log in
+                        Dashboard
                         </Link>
-                        <Link :href="route('register')"
-                            class="inline-block rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 text-gray-900 shadow-sm ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-                            Register
-                        </Link>
+                        <div v-else>
+                            <Link :href="route('login')"
+                                class="mr-2 inline-block rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 text-gray-900 shadow-sm ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+                                Log in
+                            </Link>
+                            <Link v-if="canRegister"  :href="route('register')"
+                                class="inline-block rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 text-gray-900 shadow-sm ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+                                Register
+                            </Link>
+                        </div>
                     </div>
                 </nav>
                 <!-- Mobile menu, show/hide based on menu open state. -->
@@ -127,7 +133,7 @@ defineProps({
                                         class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-400/10">Company</a>
                                 </div>
 
-                                <div class="py-6">
+                                <div v-if="canLogin" class="py-6">
                                     <Link :href="route('login')"
                                         class="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-6 text-gray-900 hover:bg-gray-400/10">
                                     Log in</Link>
