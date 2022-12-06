@@ -11,12 +11,13 @@
     <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 
     <!-- css -->
-    <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
+    <!-- <link href="{{ mix('/css/app.css') }}" rel="stylesheet" /> -->
 
     <!-- Scripts -->
     @routes
-    @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"])
-    <script src="{{ asset('/js/app.js') }}" defer></script>
+    <!-- @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"]) -->
+    @vite('resources/js/app.js')
+    <!-- <script src="{{ mix('/js/app.js') }}" defer></script> -->
     @inertiaHead
 </head>
 

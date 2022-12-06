@@ -3,6 +3,7 @@
     "engines": {
         "node": "16.14.0"
     },
+    "postinstall": "npm run prod",
     "scripts": {
         "dev": "vite",
         "build": "vite build"
