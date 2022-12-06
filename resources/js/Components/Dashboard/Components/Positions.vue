@@ -1,14 +1,9 @@
 <script setup>
 import { Head } from '@inertiajs/inertia-vue3';
-import { ref } from 'vue';
-import UploadModal from '@/Components/Dashboard/Components/UploadModal.vue';
 
 defineProps({
     canLogin: Boolean,
 });
-
-const uploadPositionModal = ref(false);
-
 </script>
 
 <template>
@@ -25,17 +20,9 @@ const uploadPositionModal = ref(false);
                     </p>
                 </div>
                 <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
-                    <button @click="uploadPositionModal=true" type="button"
+                    <button type="button"
                         class="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto">
                         Upload Positions
-                    </button>
-                    <button type="button"
-                        class="ml-2 inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto">
-                        Download Positions
-                    </button>
-                    <button type="button"
-                        class="ml-2 inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto">
-                        Download Template
                     </button>
                 </div>
             </div>
@@ -87,9 +74,6 @@ const uploadPositionModal = ref(false);
                 </div>
             </div>
         </div>
-
-        <UploadModal v-if="uploadPositionModal" />
-        
     </div>
 
 </template>
